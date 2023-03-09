@@ -26,7 +26,7 @@ export default {
       let vels = 0.08;
       let max_s = 15;
       let mouseMaskSize = 50;
-      let fontSize = 160;
+      let fontSize = 140*p5.windowHeight/700;
 
       function checkPixelColor(index) {
         if (p5.pixels[index]===255 && p5.pixels[index+1]===255 && p5.pixels[index+2]===255) {
@@ -45,6 +45,7 @@ export default {
         p5.textSize(fontSize/d/d);
         p5.textStyle(p5.BOLD);
         p5.textAlign(p5.CENTER, p5.CENTER);
+        p5.textLeading(160*p5.windowHeight/700);
         p5.text('DESIGN\nWITH\nDATA', p5.width/2, p5.height/2);
 
         // 遍历canvas上每个点的像素
@@ -69,7 +70,7 @@ export default {
       // NOTE: Set up is here
       p5.setup = _ => {
         p5.frameRate(20);
-        let cnv = p5.createCanvas(p5.windowWidth, p5.windowHeight - 140);
+        let cnv = p5.createCanvas(p5.windowWidth, p5.windowHeight);
         cnv.style('display', 'block');
         cnv.parent("p5Canvas");
 
@@ -98,7 +99,7 @@ export default {
       }
 
       p5.windowResized = _ => {
-        p5.resizeCanvas(p5.windowWidth, p5.windowHeight - 140);
+        p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
         initCanvas();
       }
 
