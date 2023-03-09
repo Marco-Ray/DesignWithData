@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div id="p5Canvas"></div>
-    <div class="btt-scroll">Scroll to discover</div>
+    <div class="btt-scroll" @click="scrollDown">Scroll to discover</div>
   </div>
 </template>
 
@@ -9,19 +9,24 @@
 
 export default {
   name: 'ParticleP5',
+  emits: ['scrollDown'],
   data() {
     return {
-      canvasWidth: document.documentElement.clientWidth,
-      canvasHeight: document.documentElement.clientHeight,
     };
+  },
+  methods: {
+    scrollDown() {
+      this.$emit('scrollDown');
+    },
   },
   mounted() {
     const script = function (p5) {
       let particleList = [];
-      let interval = 18;
+      let interval = 16;
       let vels = 0.08;
-      let max_s = 16;
+      let max_s = 15;
       let mouseMaskSize = 50;
+      let fontSize = 160;
 
       function checkPixelColor(index) {
         if (p5.pixels[index]===255 && p5.pixels[index+1]===255 && p5.pixels[index+2]===255) {
@@ -37,7 +42,7 @@ export default {
 
         p5.background(0);
         p5.fill(255);
-        p5.textSize(200/d/d);
+        p5.textSize(fontSize/d/d);
         p5.textStyle(p5.BOLD);
         p5.textAlign(p5.CENTER, p5.CENTER);
         p5.text('DESIGN\nWITH\nDATA', p5.width/2, p5.height/2);
@@ -64,7 +69,7 @@ export default {
       // NOTE: Set up is here
       p5.setup = _ => {
         p5.frameRate(20);
-        let cnv = p5.createCanvas(p5.windowWidth, p5.windowHeight);
+        let cnv = p5.createCanvas(p5.windowWidth, p5.windowHeight - 140);
         cnv.style('display', 'block');
         cnv.parent("p5Canvas");
 
@@ -93,7 +98,7 @@ export default {
       }
 
       p5.windowResized = _ => {
-        p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+        p5.resizeCanvas(p5.windowWidth, p5.windowHeight - 140);
         initCanvas();
       }
 
@@ -125,6 +130,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/mixin.scss';
+
 .container {
   position: relative;
   display: flex;
@@ -136,11 +143,11 @@ export default {
 
 .btt-scroll {
   position: absolute;
-  // todo check bottom position
-  bottom: 100px;
+  bottom: hCalc(45);
   font-weight: lighter;
   // todo check font-size
   font-size: 12px;
   color: white;
+  cursor: pointer;
 }
 </style>

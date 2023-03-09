@@ -1,0 +1,8 @@
+@function wCalc($w) {
+  @return calc(100vw / 1200 * $w);
+}
+
+@function hCalc($h) {
+  @return calc(100vh / 700 * $h);
+}
+

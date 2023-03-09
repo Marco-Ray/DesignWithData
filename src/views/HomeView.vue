@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <el-scrollbar>
-      <particle-p5 id="animation-canvas"></particle-p5>
-      <welcome-view></welcome-view>
+      <particle-p5 id="animation-canvas" @scrollDown="scrollDown"></particle-p5>
+      <welcome-view id="main"></welcome-view>
     </el-scrollbar>
   </div>
 </template>
@@ -23,6 +23,9 @@ export default {
     };
   },
   methods: {
+    scrollDown() {
+      document.getElementById('main').scrollIntoView({ behavior: 'smooth' });
+    },
   },
 };
 </script>

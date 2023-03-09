@@ -1,7 +1,25 @@
 <template>
   <div class="welcome">
-    <div class="fashion">Fashion</div>
-    <div class="ecology">Ecology</div>
+    <div class="fashion">
+      <div class="title">Fashion <br/> Informatics</div>
+      <div class="description">
+        We made           and
+        <br/>
+        for Flocktory
+        <br/>
+        Space theme in it reflects the planetary scale of the business and its limitless possibilities
+      </div>
+    </div>
+    <div class="ecology">
+      <div class="title">Design <br/> Ecology</div>
+      <div class="description">
+        We made           and
+        <br/>
+        for Flocktory
+        <br/>
+        Space theme in it reflects the planetary scale of the business and its limitless possibilities
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,6 +31,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/mixin.scss';
+
 .welcome {
   display: flex;
   flex-direction: row;
@@ -21,8 +41,37 @@ export default {
 }
 
 .fashion, .ecology {
+  display: flex;
+  flex-direction: column;
+  padding-left: 32px;
   width: 50%;
   height: 100vh;
+  // todo adjust layout
+  justify-content: center;
+  .title {
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 80px;
+    /* or 100% */
+
+    display: flex;
+    text-align: start;
+    text-transform: uppercase;
+  }
+  .description {
+    margin-top: hCalc(50);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: hCalc(42);
+    /* or 175% */
+
+    display: flex;
+    text-align: start;
+  }
 }
 
 .fashion {
@@ -30,12 +79,17 @@ export default {
   background-image: url("@/assets/img/WelcomeView/bg-fashion.png");
   background-size: cover;
   background-repeat: no-repeat;
+  .title, .description {
+    color: #9DFC4E;
+  }
 }
 .ecology {
   background-color: #C6DE70;
   background-image: url("@/assets/img/WelcomeView/bg-ecology.png");
   background-size: cover;
   background-repeat: no-repeat;
-
+  .title, .description {
+    color: #AE62EA;
+  }
 }
 </style>
