@@ -1,18 +1,38 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-scrollbar>
+      <particle-p5 id="animation-canvas"></particle-p5>
+      <welcome-view></welcome-view>
+    </el-scrollbar>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import ParticleP5 from '@/components/ParticleP5';
+import WelcomeView from '@/views/WelcomeView';
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld,
+    ParticleP5,
+    WelcomeView,
+  },
+  data() {
+    return {
+    };
+  },
+  methods: {
   },
 };
 </script>
+
+<style scoped lang="scss">
+.home {
+  height: 100vh;
+}
+
+#animation-canvas {
+  height: 100vh;
+}
+</style>
