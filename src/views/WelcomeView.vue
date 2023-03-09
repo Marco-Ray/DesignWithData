@@ -1,5 +1,10 @@
 <template>
   <div class="welcome">
+<!--    Nav-->
+    <nav-bar></nav-bar>
+
+<!--    Content-->
+<!--      Fashion-->
     <div class="fashion">
       <div class="title">Fashion <br/> Informatics</div>
       <div class="description">
@@ -10,6 +15,7 @@
         Space theme in it reflects the planetary scale of the business and its limitless possibilities
       </div>
     </div>
+<!--      Ecology-->
     <div class="ecology">
       <div class="title">Design <br/> Ecology</div>
       <div class="description">
@@ -24,9 +30,13 @@
 </template>
 
 <script>
+import NavBar from '@/components/NavBar';
 
 export default {
-  name: "WelcomeView"
+  name: 'WelcomeView',
+  components: {
+    NavBar,
+  }
 }
 </script>
 
@@ -34,6 +44,7 @@ export default {
 @import '@/styles/mixin.scss';
 
 .welcome {
+  position: relative;
   display: flex;
   flex-direction: row;
   width: 100%;
