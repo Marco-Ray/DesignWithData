@@ -1,17 +1,25 @@
+/* eslint-disable */
 <template>
   <div class="container">
     <div id="p5Canvas"></div>
-    <div class="btt-scroll" @click="scrollDown">Scroll to discover</div>
+    <div class="btt-scroll" @click="scrollDown">
+      <div>Scroll to discover</div>
+      <div class="arrow-down-box">
+        <img :src="ArrowDown" alt="scroll down" class="arrow-down" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import ArrowDown from '@/assets/img/HomeView/ArrowDown.png';
 
 export default {
   name: 'ParticleP5',
   emits: ['scrollDown'],
   data() {
     return {
+      ArrowDown: ArrowDown,
     };
   },
   methods: {
@@ -127,7 +135,7 @@ export default {
     const P5 = require('p5');
     new P5(script)
   },
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -145,10 +153,29 @@ export default {
 .btt-scroll {
   position: absolute;
   bottom: hCalc(45);
-  font-weight: lighter;
-  // todo check font-size
-  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 33px;
+  // todo check font-family
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 28px;
   color: white;
   cursor: pointer;
+
+  .arrow-down-box {
+    margin-left: 3px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .arrow-down {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 </style>
