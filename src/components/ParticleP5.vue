@@ -2,7 +2,7 @@
 <template>
   <div class="container">
     <div id="p5Canvas"></div>
-    <div class="btt-scroll" @click="scrollDown">
+    <div class="btt-scroll animate__animated animate__flash animate__infinite animate__slower" @click="scrollDown">
       <div>Scroll to discover</div>
       <div class="arrow-down-box">
         <img :src="ArrowDown" alt="scroll down" class="arrow-down" />
@@ -176,6 +176,9 @@ export default {
       width: 100%;
       height: 100%;
     }
+  }
+  &:hover {
+    animation: unset;
   }
 }
 </style>

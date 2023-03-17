@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'ShowcaseGallery'
+  name: 'ShowcaseGallery',
 }
 </script>
 

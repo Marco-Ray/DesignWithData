@@ -4,10 +4,9 @@
       <img :src="LOGO" alt="logo" class="logo" />
     </div>
     <div class="router-container">
-      <router-link to="About">About</router-link>
-      <router-link to="Catalogue">Catalogue</router-link>
-      <router-link to="Showcase">Showcase</router-link>
-      <router-link to="Visit">Visit</router-link>
+      <router-link :to="{ path: '/' }">About</router-link>
+      <router-link to="showcase">Showcase</router-link>
+      <router-link to="visit">Visit</router-link>
     </div>
   </div>
 </template>
