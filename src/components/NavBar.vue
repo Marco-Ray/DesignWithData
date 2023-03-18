@@ -5,9 +5,7 @@
     </div>
     <div class="router-container">
       <router-link :to="{ path: '/' }">About</router-link>
-      <router-link :to="{ name: 'showcase', params: { track: 'Fashion-Informatics' }, query: { viewMode: 'carousel' }}">
-        Showcase
-      </router-link>
+      <router-link :to="{ name: 'showcase', query: { viewMode: 'carousel' }}">Showcase</router-link>
       <router-link to="visit">Visit</router-link>
     </div>
   </div>

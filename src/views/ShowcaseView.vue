@@ -28,7 +28,7 @@ export default {
   },
   data() {
     return {
-      track: this.$route.params.track,
+      track: this.$route.meta.track,
       viewMode: this.$route.query.viewMode,
       Placeholder: Placeholder,
     };
@@ -36,7 +36,7 @@ export default {
   methods: {
     switchMode(mode) {
       this.viewMode = mode;
-      this.$router.push({ name: 'showcase', params: { track: this.track }, query: { viewMode: mode }});
+      this.$router.push({ name: this.$route.meta.track, query: { viewMode: mode }});
     }
   }
 };

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import AboutView from '@/views/AboutView.vue';
+import ShowcaseLayout from '@/views/ShowcaseLayout.vue';
 import ShowcaseView from '@/views/ShowcaseView.vue';
 
 const routes = [
@@ -18,9 +19,28 @@ const routes = [
     component: AboutView,
   },
   {
-    path: '/showcase/:track',
+    path: '/showcase/',
     name: 'showcase',
-    component: ShowcaseView,
+    redirect: '/showcase/Fashion-Informatics',
+    component: ShowcaseLayout,
+    children: [
+      {
+        path: '/showcase/Fashion-Informatics',
+        name: 'fashion',
+        component: ShowcaseView,
+        meta: {
+          track: 'fashion',
+        }
+      },
+      {
+        path: '/showcase/Design-Ecology',
+        name: 'ecology',
+        component: ShowcaseView,
+        meta: {
+          track: 'ecology',
+        }
+      }
+    ]
   },
 ];
 

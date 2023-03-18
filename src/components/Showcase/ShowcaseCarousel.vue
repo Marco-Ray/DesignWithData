@@ -13,7 +13,7 @@
     <el-carousel :interval="4000" type="card" :autoplay="false" trigger="click">
       <el-carousel-item v-for="item in 6" :key="item">
         <div class="project-img-box">
-          <img :src="Placeholder" alt="/" class="project-img">
+          <img :src="Placeholder" alt="student project image" class="project-img">
         </div>
       </el-carousel-item>
     </el-carousel>
@@ -57,12 +57,11 @@ export default {
   align-items: center;
   font-family: Helvetica;
   text-align: center;
-  margin-bottom: 44px;
   .title {
     font-size: fSizeCalc(32);
     font-weight: normal;
-    line-height: fSizeCalc(44);
     letter-spacing: 0;
+    margin-top: hCalc(28);
     margin-bottom: hCalc(15);
   }
   .members {
@@ -80,6 +79,7 @@ export default {
     line-height: fSizeCalc(23);
     letter-spacing: fSizeCalc(0.15);
     text-align: center;
+    margin-bottom: 44px;
   }
 }
 

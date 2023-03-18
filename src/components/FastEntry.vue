@@ -1,7 +1,7 @@
 <template>
   <div class="fast-entry">
-    <router-link :to="{ name: 'showcase', params: { track: 'Fashion-Informatics' }, query: { viewMode: 'carousel' }}">FASHION INFORMATICS</router-link>
-    <router-link :to="{ name: 'showcase', params: { track: 'Design-Ecology' }, query: { viewMode: 'carousel' }}">DESIGN ECOLOGIES</router-link>
+    <router-link :to="{ path: '/showcase/Fashion-Informatics', query: { viewMode: 'carousel' }}">FASHION INFORMATICS</router-link>
+    <router-link :to="{ path: '/showcase/Design-Ecology', query: { viewMode: 'carousel' }}">DESIGN ECOLOGY</router-link>
   </div>
 </template>
 
@@ -16,6 +16,11 @@ export default {
   position: fixed;
   bottom: 17px;
   left: 32px;
+  width: 100%;
+  height: 68px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
   color: white;
   display: flex;
   column-gap: 13px;
