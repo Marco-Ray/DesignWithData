@@ -6,3 +6,6 @@
   @return calc(100vh / 700 * $h);
 }
 
+@function fSizeCalc($fs) {
+  @return calc(1rem * $fs / 16);
+}

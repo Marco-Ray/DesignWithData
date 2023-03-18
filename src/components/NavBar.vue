@@ -35,27 +35,26 @@ export default {
 #nav-bar {
   display: flex;
   flex-direction: row;
-  padding: 10px 32px 0 32px;
+  padding: 0 32px;
   justify-content: space-between;
   align-items: center;
   width: calc(100% - 64px);
-  height: 100px;
+  height: 118px;
 }
 
 .router-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
   width: 326px;
   height: 55px;
   a {
     text-decoration: none;
-    font-family: Poppins;
-    // todo too small
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 28px;
+    font-family: Helvetica;
+    font-size: fSizeCalc(16);
+    font-weight: 100;
+    line-height: fSizeCalc(28);
     text-align: left;
     color: white;
     &:hover {

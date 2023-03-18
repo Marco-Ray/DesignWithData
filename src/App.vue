@@ -3,8 +3,11 @@
 </template>
 
 <style lang="scss">
+@import '@/styles/mixin.scss';
+
 html, body {
   margin: 0;
+  font-size: wCalc(16);
 }
 
 #app {

@@ -1,18 +1,18 @@
 <template>
   <div class="Showcase">
     <nav-bar class="nav"></nav-bar>
-    <showcase-cascade></showcase-cascade>
+    <showcase-carousel></showcase-carousel>
   </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar';
-import ShowcaseCascade from '@/components/Showcase/ShowcaseCascade';
+import ShowcaseCarousel from '@/components/Showcase/ShowcaseCarousel';
 
 export default {
   name: 'ShowcaseView',
   components: {
-    ShowcaseCascade,
+    ShowcaseCarousel,
     NavBar,
   },
 };
@@ -26,7 +26,5 @@ export default {
 }
 
 .nav {
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.3);
-  background-color: black;
 }
 </style>
