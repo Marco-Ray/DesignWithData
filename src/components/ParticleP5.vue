@@ -164,7 +164,6 @@ export default {
   line-height: 28px;
   color: white;
   cursor: pointer;
-
   .arrow-down-box {
     margin-left: 3px;
     width: 12px;

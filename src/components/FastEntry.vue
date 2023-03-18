@@ -16,7 +16,6 @@ export default {
   position: fixed;
   bottom: 17px;
   left: 32px;
-  width: 100%;
   height: 68px;
   display: flex;
   justify-content: start;
