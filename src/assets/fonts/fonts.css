@@ -1,17 +1,17 @@
 @font-face {
     font-family: 'Helvetica';
     font-weight: normal;
-    src: url('./Helvetica/Helvetica.ttf');
+    src: url('./Helvetica/Helvetica.otf');
 }
 
-@font-face {
-    font-family: 'Helvetica';
-    font-weight: bold;
-    src: url('./Helvetica/Helvetica Bold.ttf');
-}
+/*@font-face {*/
+/*    font-family: 'Helvetica';*/
+/*    font-weight: bold;*/
+/*    src: url('./Helvetica/Helvetica Bold.ttf');*/
+/*}*/
 
-@font-face {
-    font-family: 'Helvetica';
-    font-weight: 100;
-    src: url('./Helvetica/Helvetica Light.ttf');
-}
+/*@font-face {*/
+/*    font-family: 'Helvetica';*/
+/*    font-weight: 100;*/
+/*    src: url('./Helvetica/Helvetica Light.ttf');*/
+/*}*/

@@ -7,7 +7,13 @@
 
 html, body {
   margin: 0;
+  user-select: none;
   font-size: wCalc(16);
+}
+
+// 禁止拖动
+img {
+  -webkit-user-drag: none;
 }
 
 #app {

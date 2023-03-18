@@ -18,7 +18,7 @@ const routes = [
     component: AboutView,
   },
   {
-    path: '/showcase',
+    path: '/showcase/:track',
     name: 'showcase',
     component: ShowcaseView,
   },

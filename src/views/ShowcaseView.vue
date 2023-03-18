@@ -1,20 +1,44 @@
 <template>
   <div class="Showcase">
     <nav-bar class="nav"></nav-bar>
-    <showcase-carousel></showcase-carousel>
+    <component :is="viewMode==='carousel' ? 'ShowcaseCarousel' : 'ShowcaseGallery'"
+               @switchMode="switchMode"
+               :Placeholder="Placeholder"
+    >
+    </component>
+    <fast-entry></fast-entry>
   </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar';
 import ShowcaseCarousel from '@/components/Showcase/ShowcaseCarousel';
+import ShowcaseGallery from '@/components/Showcase/ShowcaseGallery';
+import FastEntry from '@/components/FastEntry';
+import Placeholder from '@/assets/img/Showcase/placeholder.png';
+
 
 export default {
   name: 'ShowcaseView',
   components: {
+    ShowcaseGallery,
     ShowcaseCarousel,
+    FastEntry,
     NavBar,
   },
+  data() {
+    return {
+      track: this.$route.params.track,
+      viewMode: this.$route.query.viewMode,
+      Placeholder: Placeholder,
+    };
+  },
+  methods: {
+    switchMode(mode) {
+      this.viewMode = mode;
+      this.$router.push({ name: 'showcase', params: { track: this.track }, query: { viewMode: mode }});
+    }
+  }
 };
 </script>
 

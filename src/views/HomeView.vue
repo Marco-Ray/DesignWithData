@@ -4,10 +4,7 @@
       <particle-p5 id="animation-canvas" @scrollDown="scrollDown"></particle-p5>
       <welcome-view id="main"></welcome-view>
     </el-scrollbar>
-    <div class="fast-entry">
-      <router-link :to="{ name: 'showcase', params: { track: 'Fashion-Informatics' } }">FASHION INFORMATICS</router-link>
-      <router-link :to="{ name: 'showcase', params: { track: 'Design-Ecology' } }">DESIGN ECOLOGIES</router-link>
-    </div>
+    <fast-entry></fast-entry>
   </div>
 </template>
 
@@ -15,10 +12,12 @@
 // @ is an alias to /src
 import ParticleP5 from '@/components/ParticleP5.vue';
 import WelcomeView from '@/views/WelcomeView.vue';
+import FastEntry from '@/components/FastEntry';
 
 export default {
   name: 'HomeView',
   components: {
+    FastEntry,
     ParticleP5,
     WelcomeView,
   },
@@ -49,29 +48,5 @@ export default {
   scroll-snap-type: y mandatory;
 }
 
-.fast-entry {
-  position: fixed;
-  bottom: 17px;
-  left: 32px;
-  color: white;
-  display: flex;
-  column-gap: 13px;
-  cursor: pointer;
-  a {
-    text-decoration: none;
-    font-family: Poppins;
-    // todo too small
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 28px;
-    text-align: left;
-    color: white;
-    &:hover {
-      border-bottom: .5px solid white;
-    }
-  }
-  .router-link-active {
-    border-bottom: .5px solid white;
-  }
-}
+
 </style>
