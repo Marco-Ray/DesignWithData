@@ -4,9 +4,8 @@
       <img :src="LOGO" alt="logo" class="logo" />
     </div>
     <div class="router-container">
-      <router-link :to="{ path: '/' }">About</router-link>
+      <router-link :to="{ path: '/#main' }">About</router-link>
       <router-link :to="{ name: 'showcase', query: { viewMode: 'carousel' }}">Showcase</router-link>
-      <router-link to="visit">Visit</router-link>
     </div>
   </div>
 </template>
@@ -47,13 +46,13 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 326px;
+  width: wCalc(140);
   height: 55px;
   a {
+    font-family: Helvetica Light;
     text-decoration: none;
-    font-family: Helvetica;
     font-size: fSizeCalc(16);
-    font-weight: 100;
+    font-weight: normal;
     line-height: fSizeCalc(28);
     text-align: left;
     color: white;
@@ -67,8 +66,8 @@ export default {
 }
 
 .logo-container {
-  width: 160px;
-  height: 54px;
+  width: 160px*1.1;
+  height: 54px*1.1;
   cursor: pointer;
   .logo {
     width: 100%;

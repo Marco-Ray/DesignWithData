@@ -1,17 +1,33 @@
 <template>
   <div class="fast-entry">
-    <router-link :to="{ path: '/showcase/Fashion-Informatics', query: { viewMode: 'carousel' }}">FASHION INFORMATICS</router-link>
-    <router-link :to="{ path: '/showcase/Design-Ecology', query: { viewMode: 'carousel' }}">DESIGN ECOLOGY</router-link>
+    <router-link :to="{ path: '/showcase/Fashion-Informatics',
+      query: { viewMode: viewMode }}"
+    >
+      FASHION INFORMATICS
+    </router-link>
+    <router-link :to="{ path: '/showcase/Design-Ecology',
+      query: { viewMode: viewMode }}"
+    >
+      DESIGNING ECOLOGIES
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
   name: 'FastEntry',
+  props: {
+    viewMode: {
+      type: String,
+      default: 'carousel'
+    },
+  },
 }
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/mixin.scss';
+
 .fast-entry {
   position: fixed;
   bottom: 17px;
@@ -22,17 +38,16 @@ export default {
   align-items: center;
   color: white;
   display: flex;
-  column-gap: 13px;
+  column-gap: 26px;
   cursor: pointer;
   a {
     text-decoration: none;
-    font-family: Poppins;
-    // todo too small
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 28px;
+    font-family: Helvetica Light;
+    font-size: fSizeCalc(12);
+    font-weight: normal;
+    line-height: fSizeCalc(28);
     text-align: left;
-    color: white;
+    color: rgba(255, 255, 255, 0.85);
     &:hover {
       border-bottom: .5px solid white;
     }

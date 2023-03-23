@@ -1,6 +1,6 @@
 <template>
   <div class="showcase-gallery-container">
-    <div class="title">Student Project</div>
+    <div class="title">{{ track === 'fashion' ? 'Fashion Informatics': 'Design Ecology'}} Student Project</div>
     <div class="project__view">
       <el-scrollbar>
         <div class="project__grid">
@@ -13,14 +13,8 @@
           </div>
         </div>
       </el-scrollbar>
-      <div class="description">
-        It makes use of its location to focus on how the nature,
-        quality and potential of the interior can be developed.
-        The Studio is central to such considerations.
-        It is a place where we discuss, develop and define that which surrounds us.
-        It is a place where we talk, make, draw and show.
-        It is a place where we reveal how the world we hope to inhabit might appear,
-        how it might feel and how it might be.
+      <div class="description" v-if="info">
+        {{ info.description }}
       </div>
     </div>
 
@@ -37,10 +31,12 @@ export default {
   name: 'ShowcaseGallery',
   props: {
     Placeholder: String,
+    info: Object,
   },
   emits: ['switchMode'],
   data() {
     return {
+      track: this.$route.meta.track,
       IconCarousel: IconCarousel,
     };
   },
@@ -48,7 +44,7 @@ export default {
     switchMode() {
       this.$emit('switchMode', 'carousel');
     }
-  }
+  },
 }
 </script>
 
@@ -60,17 +56,27 @@ export default {
 }
 
 .title {
-  margin: hCalc(32) 0;
-  font-family: Helvetica;
+  margin: hCalc(24) 0;
+  font-family: Helvetica Light;
   font-size: fSizeCalc(24);
   font-weight: normal;
   letter-spacing: fSizeCalc(-0.44);
   text-align: left;
 }
 
+// todo
+.description {
+  width: wCalc(357);
+  font-family: Helvetica Light;
+  font-weight: 100;
+  font-size: fSizeCalc(13);
+  line-height: fSizeCalc(23);
+}
+
 .project__view {
   height: calc(100vh - 200px - hCalc(91));
-  display: grid;
+  display: flex;
+  flex-direction: row;
   grid-template-columns: 1fr wCalc(357);
   gap: wCalc(32);
 }
@@ -85,6 +91,8 @@ export default {
     position: relative;
     width: wCalc(169);
     height: wCalc(169);
+    // todo click event
+    cursor: pointer;
     &:hover {
       .project__mask {
         display: flex;
@@ -100,9 +108,9 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #999999;
+      background-color: rgba(0, 0, 0, 0.7);
 
-      font-family: Helvetica;
+      font-family: Helvetica Light;
       font-weight: normal;
       line-height: fSizeCalc(23);
       letter-spacing: fSizeCalc(0.15);

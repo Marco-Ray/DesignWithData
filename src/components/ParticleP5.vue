@@ -3,7 +3,7 @@
   <div class="container">
     <div id="p5Canvas"></div>
     <div class="btt-scroll animate__animated animate__flash animate__infinite animate__slower" @click="scrollDown">
-      <div>Scroll to discover</div>
+      <div>Scroll down</div>
       <div class="arrow-down-box">
         <img :src="ArrowDown" alt="scroll down" class="arrow-down" />
       </div>
@@ -152,22 +152,21 @@ export default {
 
 .btt-scroll {
   position: absolute;
-  bottom: hCalc(45);
+  bottom: 17px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 33px;
-  // todo check font-family
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 28px;
+  height: 68px;
+  font-family: Helvetica Light;
+  font-size: fSizeCalc(12);
+  font-weight: 100;
+  line-height: fSizeCalc(28);
   color: white;
   cursor: pointer;
   .arrow-down-box {
     margin-left: 3px;
-    width: 12px;
-    height: 12px;
+    width: fSizeCalc(12);
+    height: fSizeCalc(12);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,5 +178,9 @@ export default {
   &:hover {
     animation: unset;
   }
+}
+
+.animate__animated.animate__flash {
+  --animate-duration: 2.2s !important;
 }
 </style>

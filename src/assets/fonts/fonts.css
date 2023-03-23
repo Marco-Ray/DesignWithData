@@ -4,6 +4,12 @@
     src: url('./Helvetica/Helvetica.otf');
 }
 
+@font-face {
+    font-family: 'Helvetica Light';
+    font-weight: normal;
+    src: url('./Helvetica/helvetica-light.otf');
+}
+
 /*@font-face {*/
 /*    font-family: 'Helvetica';*/
 /*    font-weight: bold;*/

@@ -11,7 +11,7 @@
       </div>
     </div>
     <el-carousel :interval="4000" type="card" :autoplay="false" trigger="click">
-      <el-carousel-item v-for="item in 6" :key="item">
+      <el-carousel-item v-for="item in 10" :key="item">
         <div class="project-img-box">
           <img :src="Placeholder" alt="student project image" class="project-img">
         </div>
@@ -50,22 +50,26 @@ export default {
 <style scoped lang="scss">
 @import '@/styles/mixin.scss';
 
+.showcase-carousel-container {
+  margin-top: -40px;
+}
+
 .info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Helvetica;
+  font-family: Helvetica Light;
   text-align: center;
   .title {
-    font-size: fSizeCalc(32);
+    font-size: fSizeCalc(36);
     font-weight: normal;
     letter-spacing: 0;
     margin-top: hCalc(28);
     margin-bottom: hCalc(15);
   }
   .members {
-    font-size: fSizeCalc(14);
+    font-size: fSizeCalc(12);
     font-weight: 100;
     line-height: fSizeCalc(24);
     letter-spacing: fSizeCalc(-0.44);
@@ -73,8 +77,7 @@ export default {
   }
   .description {
     width: wCalc(781);
-    font-family: Helvetica;
-    font-size: fSizeCalc(14);
+    font-size: fSizeCalc(12);
     font-weight: 100;
     line-height: fSizeCalc(23);
     letter-spacing: fSizeCalc(0.15);
@@ -95,18 +98,18 @@ export default {
     .project-img-box {
       width: hCalc(506);
       height: hCalc(283);
-      border: 1px solid white;
+      //border: 1px solid white;
       .project-img {
         height: 100%;
         width: 100%;
       }
     }
     ::v-deep .el-carousel__mask {
-      background-color: transparent;
+      background-color: rgba(0,0,0,0.8);
     }
   }
   ::v-deep .el-carousel__arrow {
-    background-color: rgb(31, 45, 61);
+    background-color: rgba(64, 67, 69, 0.7);
   }
 }
 
