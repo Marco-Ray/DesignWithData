@@ -57,11 +57,8 @@ export default {
     text-align: left;
     color: white;
     &:hover {
-      border-bottom: .5px solid white;
+      font-weight: bolder;
     }
-  }
-  .router-link-active {
-    border-bottom: .5px solid white;
   }
 }
 

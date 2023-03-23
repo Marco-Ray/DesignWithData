@@ -115,14 +115,17 @@ export default {
 
 .mode-icon-box {
   position: absolute;
-  bottom: 22px;
+  bottom: 17px;
   right: 32px;
-  width: 24px;
-  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 68px;
   cursor: pointer;
   .mode-icon {
-    width: 100%;
-    height: 100%;
+    width: 30px;
+    height: 30px;
   }
 }
 </style>

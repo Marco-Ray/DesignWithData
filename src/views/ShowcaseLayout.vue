@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-bar class="nav"></nav-bar>
-    <router-view class="shhowcase-viewer"></router-view>
+    <router-view class="showcase-viewer"></router-view>
   </div>
 </template>
 

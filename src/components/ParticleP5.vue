@@ -181,6 +181,8 @@ export default {
 }
 
 .animate__animated.animate__flash {
+  // todo
+  transition-timing-function: ease-in-out;
   --animate-duration: 2.2s !important;
 }
 </style>

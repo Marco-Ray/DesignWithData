@@ -1,7 +1,7 @@
 <template>
   <div class="showcase-gallery-container">
     <div class="title">{{ track === 'fashion' ? 'Fashion Informatics': 'Design Ecology'}} Student Project</div>
-    <div class="project__view">
+<!--    <div class="project__view">-->
       <el-scrollbar>
         <div class="project__grid">
           <div v-for="item in 26" :key="item" class="project">
@@ -12,11 +12,11 @@
             <img :src="Placeholder" alt="student project image" class="project-img">
           </div>
         </div>
+        <div class="description" v-if="info">
+          {{ info.description }}
+        </div>
       </el-scrollbar>
-      <div class="description" v-if="info">
-        {{ info.description }}
-      </div>
-    </div>
+<!--    </div>-->
 
     <div class="mode-icon-box" @click="switchMode">
       <img :src="IconCarousel" alt="switch to gallery mode" class="mode-icon">
@@ -52,7 +52,7 @@ export default {
 @import '@/styles/mixin.scss';
 
 .showcase-gallery-container {
-  margin: 0 32px;
+  margin-left: 32px;
 }
 
 .title {
@@ -66,14 +66,26 @@ export default {
 
 // todo
 .description {
+  position: fixed;
+  right: 32px;
   width: wCalc(357);
   font-family: Helvetica Light;
   font-weight: 100;
   font-size: fSizeCalc(13);
   line-height: fSizeCalc(23);
+  pointer-events: none;
 }
 
-.project__view {
+//.project__view {
+//  height: calc(100vh - 200px - hCalc(91));
+//  display: flex;
+//  flex-direction: row;
+//  grid-template-columns: 1fr wCalc(357);
+//  gap: wCalc(32);
+//}
+
+::v-deep .el-scrollbar__view {
+  position: relative;
   height: calc(100vh - 200px - hCalc(91));
   display: flex;
   flex-direction: row;
@@ -131,14 +143,17 @@ export default {
 
 .mode-icon-box {
   position: absolute;
-  bottom: 22px;
+  bottom: 17px;
   right: 32px;
-  width: 24px;
-  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 68px;
   cursor: pointer;
   .mode-icon {
-    width: 100%;
-    height: 100%;
+    width: 30px;
+    height: 28px;
   }
 }
 </style>
