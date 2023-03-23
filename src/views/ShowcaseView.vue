@@ -1,12 +1,14 @@
 <template>
   <div class="Showcase">
 <!--    <nav-bar class="nav"></nav-bar>-->
-    <component :is="viewMode==='carousel' ? 'ShowcaseCarousel' : 'ShowcaseGallery'"
-               @switchMode="switchMode"
-               :Placeholder="Placeholder"
-               :info="track === 'fashion' ? fashion : ecology"
-    >
-    </component>
+    <transition :name="'fade'" mode="out-in">
+      <component :is="viewMode==='carousel' ? 'ShowcaseCarousel' : 'ShowcaseGallery'"
+                 @switchMode="switchMode"
+                 :Placeholder="Placeholder"
+                 :info="track === 'fashion' ? fashion : ecology"
+      >
+      </component>
+    </transition>
     <fast-entry :viewMode="viewMode"></fast-entry>
   </div>
 </template>
@@ -43,9 +45,7 @@ export default {
   methods: {
     switchMode(mode) {
       this.viewMode = mode;
-      sessionStorage.viewMode = mode;
       this.$router.push({ name: this.$route.meta.track, query: { viewMode: mode }});
-      this.$forceUpdate();
     }
   },
 };

@@ -4,6 +4,7 @@
   >
     <transition
       :name="route.meta.transitionName"
+      mode="out-in"
     >
       <component
         :is="Component"
