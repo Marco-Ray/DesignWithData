@@ -1,11 +1,12 @@
 <template>
   <div class="Showcase">
-<!--    <nav-bar class="nav"></nav-bar>-->
+<!--    <nav-bar class="nav" :viewMode="viewMode"></nav-bar>-->
     <transition :name="'fade'" mode="out-in">
       <component :is="viewMode==='carousel' ? 'ShowcaseCarousel' : 'ShowcaseGallery'"
-                 @switchMode="switchMode"
                  :Placeholder="Placeholder"
                  :info="track === 'fashion' ? fashion : ecology"
+                 @switchMode="switchMode"
+                 @viewMore="viewMore"
       >
       </component>
     </transition>
@@ -20,9 +21,12 @@ import ShowcaseGallery from '@/components/Showcase/ShowcaseGallery';
 import FastEntry from '@/components/FastEntry';
 import Placeholder from '@/assets/img/Showcase/placeholder.png';
 
-
 export default {
   name: 'ShowcaseView',
+  emits: ['switchMode'],
+  props: {
+    viewMode: String,
+  },
   components: {
     ShowcaseGallery,
     ShowcaseCarousel,
@@ -31,8 +35,8 @@ export default {
   },
   data() {
     return {
-      track: this.$route.meta.track,
-      viewMode: this.$route.query.viewMode,
+      track: this.$route.params.track,
+      // viewMode: this.$route.query.viewMode,
       Placeholder: Placeholder,
       fashion: {
         description: 'Fashion Informatics explores data in the context and landscape of fashion, ' +
@@ -60,14 +64,23 @@ export default {
   },
   methods: {
     switchMode(mode) {
-      this.viewMode = mode;
-      this.$router.push({ name: this.$route.meta.track, query: { viewMode: mode }});
+      this.$emit('switchMode', mode);
+    },
+    viewMore(index) {
+      // todo
+      console.log(index);
     }
   },
 };
 </script>
 
 <style scoped lang="scss">
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .Showcase {
   margin-top: 140px;
   background-color: black;

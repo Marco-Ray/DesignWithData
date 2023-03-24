@@ -1,11 +1,11 @@
 <template>
   <div class="fast-entry">
-    <router-link :to="{ path: '/showcase/Fashion-Informatics',
+    <router-link :to="{ path: '/showcase/fashion',
       query: { viewMode: viewMode }}"
     >
       FASHION INFORMATICS
     </router-link>
-    <router-link :to="{ path: '/showcase/Design-Ecology',
+    <router-link :to="{ path: '/showcase/ecology',
       query: { viewMode: viewMode }}"
     >
       DESIGNING ECOLOGIES

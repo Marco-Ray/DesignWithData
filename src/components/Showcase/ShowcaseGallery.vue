@@ -1,10 +1,10 @@
 <template>
   <div class="showcase-gallery-container">
-    <div class="title">{{ track === 'fashion' ? 'Fashion Informatics': 'Design Ecology'}} Student Project</div>
+    <div class="title">{{ track === 'fashion' ? 'Fashion Informatics': 'Designing Ecologies'}} Student Project</div>
 <!--    <div class="project__view">-->
       <el-scrollbar>
         <div class="project__grid">
-          <div v-for="item in 26" :key="item" class="project">
+          <div v-for="(item, index) in 26" :key="index" class="project" @click="viewMore(index)">
             <div class="project__mask">
               <div class="project-name">Dynamic Moth</div>
               <div class="project-member">Teammate, Teammate, Teammate</div>
@@ -33,16 +33,19 @@ export default {
     Placeholder: String,
     info: Object,
   },
-  emits: ['switchMode'],
+  emits: ['switchMode', 'viewMore'],
   data() {
     return {
-      track: this.$route.meta.track,
+      track: this.$route.params.track,
       IconCarousel: IconCarousel,
     };
   },
   methods: {
     switchMode() {
       this.$emit('switchMode', 'carousel');
+    },
+    viewMore(index) {
+      this.$emit('viewMore', index);
     }
   },
 }

@@ -3,15 +3,6 @@ import HomeView from '@/views/HomeView.vue';
 import ShowcaseLayout from '@/views/ShowcaseLayout.vue';
 import ShowcaseView from '@/views/ShowcaseView.vue';
 
-const scrollBehavior = function (to, from, savedPosition) {
-  if (to.hash) {
-    return {
-      // 通过 to.hash 的值來找到对应的元素
-      selector: to.hash
-    }
-  }
-}
-
 const routes = [
   {
     path: '/',
@@ -23,33 +14,18 @@ const routes = [
     },
   },
   {
-    path: '/showcase/',
+    path: '/showcase',
     name: 'showcase',
-    redirect: '/showcase/Fashion-Informatics',
     component: ShowcaseLayout,
-    meta: {
-      index: 1,
-      transitionName: 'fade',
-    },
     children: [
       {
-        path: '/showcase/Fashion-Informatics',
-        name: 'fashion',
+        path: '/showcase/:track',
+        name: 'track',
         component: ShowcaseView,
         meta: {
-          index: 2,
+          index: 1,
           transitionName: 'fade',
-          track: 'fashion',
-        }
-      },
-      {
-        path: '/showcase/Design-Ecology',
-        name: 'ecology',
-        component: ShowcaseView,
-        meta: {
-          index: 3,
-          track: 'ecology',
-          transitionName: 'fade',
+          // track: 'fashion',
         }
       }
     ]
@@ -59,7 +35,6 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  scrollBehavior,
 });
 
 // router.afterEach((to, from) => {

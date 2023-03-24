@@ -1,7 +1,7 @@
 <template>
   <div>
-    <nav-bar class="nav"></nav-bar>
-    <router-view class="showcase-viewer"></router-view>
+    <nav-bar class="nav" :viewMode="viewMode"></nav-bar>
+    <router-view class="showcase-viewer" @switchMode="switchMode" :viewMode="viewMode"></router-view>
   </div>
 </template>
 
@@ -11,8 +11,19 @@ export default {
   name: 'ShowcaseLayout',
   components: {
     NavBar,
+  },
+  data() {
+    return {
+      viewMode: this.$route.query.viewMode,
+    };
+  },
+  methods: {
+    switchMode(mode) {
+      this.viewMode = mode;
+      this.$router.push({ path: this.$route.path, query: { viewMode: mode }});
+    }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

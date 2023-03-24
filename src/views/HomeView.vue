@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <el-scrollbar>
+    <el-scrollbar ref="scroll">
       <particle-p5 id="animation-canvas" @scrollDown="scrollDown"></particle-p5>
       <welcome-view id="main"></welcome-view>
     </el-scrollbar>
@@ -23,12 +23,19 @@ export default {
   },
   data() {
     return {
+      scrollDistance: 0,
     };
   },
   methods: {
     scrollDown() {
       document.getElementById('main').scrollIntoView({ behavior: 'smooth' });
     },
+  },
+  mounted() {
+    if (this.$route.hash === '#main') {
+      document.getElementById('main').scrollIntoView();
+      this.$router.replace('/');
+    }
   },
 };
 </script>
@@ -40,6 +47,7 @@ export default {
 }
 
 #animation-canvas, #main {
+  color: white;
   height: 100vh;
   scroll-snap-align: center;
 }

@@ -11,8 +11,12 @@
       </div>
     </div>
     <el-carousel :interval="4000" type="card" :autoplay="false" trigger="click">
-      <el-carousel-item v-for="item in 10" :key="item">
+      <el-carousel-item v-for="(item, index) in 10" :key="index">
         <div class="project-img-box">
+          <div class="view-more" @click="viewMore(index)">
+            <div>View work</div>
+            <img :src="IconVector" alt="view more" class="view-more__icon" />
+          </div>
           <img :src="Placeholder" alt="student project image" class="project-img">
         </div>
       </el-carousel-item>
@@ -26,22 +30,26 @@
 
 <script>
 import IconGallery from '@/assets/img/Showcase/icon-gallery.png';
+import IconVector from '@/assets/img/Showcase/icon-vector.png';
 
 export default {
   name: 'ShowcaseCarousel',
   props: {
     Placeholder: String,
   },
-  emits: ['switchMode'],
+  emits: ['switchMode', 'viewMore'],
   data() {
     return {
-      // TODO load data
       IconGallery: IconGallery,
+      IconVector: IconVector,
     };
   },
   methods: {
     switchMode() {
       this.$emit('switchMode', 'gallery');
+    },
+    viewMore(index) {
+      this.$emit('viewMore', index);
     },
   },
 };
@@ -96,12 +104,36 @@ export default {
     align-items: center;
     background-color: transparent;
     .project-img-box {
+      position: relative;
       width: hCalc(506);
       height: hCalc(283);
-      //border: 1px solid white;
       .project-img {
         height: 100%;
         width: 100%;
+      }
+      .view-more {
+        display: flex;
+        opacity: 0;
+        position: absolute;
+        bottom: hCalc(30);
+        left: 50%;
+        transform: translateX(-50%);
+        justify-content: center;
+        align-items: center;
+        width: fSizeCalc(84);
+        height: fSizeCalc(25);
+        background-color: black;
+        font-family: Helvetica Light;
+        font-size: fSizeCalc(12);
+        font-weight: 400;
+        line-height: fSizeCalc(25);
+        letter-spacing: fSizeCalc(-0.44);
+        transition: all .5s ease-out;
+        cursor: pointer;
+        .view-more__icon {
+          height: fSizeCalc(18);
+          width: fSizeCalc(18);
+        }
       }
     }
     ::v-deep .el-carousel__mask {
@@ -110,6 +142,19 @@ export default {
   }
   ::v-deep .el-carousel__arrow {
     background-color: rgba(64, 67, 69, 0.7);
+  }
+}
+
+.el-carousel__item.is-active {
+  pointer-events: none;
+  .project-img-box {
+    pointer-events: auto;
+    cursor: default;
+  }
+  &:hover {
+    .view-more {
+      opacity: 1;
+    }
   }
 }
 
