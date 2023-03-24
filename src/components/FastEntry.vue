@@ -47,7 +47,7 @@ export default {
     font-weight: normal;
     line-height: fSizeCalc(28);
     text-align: left;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgb(255, 255, 255);
     &:hover {
       border-bottom: .5px solid white;
     }

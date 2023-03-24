@@ -14,7 +14,7 @@
              active-text-color="white"
     >
       <el-menu-item index="1" :route="{ path: '/', hash: '#main' }">About</el-menu-item>
-      <el-sub-menu index="2">
+      <el-sub-menu index="2" popper-class="submenu">
         <template #title>Showcase</template>
         <el-menu-item index="2-1" :route="{ path: '/showcase/fashion', query: { viewMode: viewMode }}">Fashion Informatics</el-menu-item>
         <el-menu-item index="2-2" :route="{ path: '/showcase/ecology', query: { viewMode: viewMode }}">Designing Ecologies</el-menu-item>
@@ -60,28 +60,6 @@ export default {
   height: 118px;
 }
 
-//.router-container {
-//  display: flex;
-//  flex-direction: row;
-//  justify-content: space-between;
-//  align-items: center;
-//  width: wCalc(140);
-//  height: 55px;
-//  a {
-//    font-family: Helvetica Light;
-//    text-decoration: none;
-//    font-size: fSizeCalc(16);
-//    font-weight: normal;
-//    line-height: fSizeCalc(28);
-//    text-align: left;
-//    color: white;
-//    &:hover {
-//      font-weight: bolder;
-//    }
-//  }
-//}
-
-
 .el-menu-demo {
   display: flex;
   flex-direction: row;
@@ -96,6 +74,7 @@ export default {
 }
 .el-menu--popup {
   .el-menu-item {
+    font-family: Helvetica Light;
     font-size: fSizeCalc(12);
     &:nth-child(1) {
       border-bottom: 1px solid white;

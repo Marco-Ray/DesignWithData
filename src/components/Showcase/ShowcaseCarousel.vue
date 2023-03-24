@@ -137,6 +137,8 @@ export default {
       }
     }
     ::v-deep .el-carousel__mask {
+      z-index: 1;
+      opacity: 0.8;
       background-color: rgba(0,0,0,0.8);
     }
   }
