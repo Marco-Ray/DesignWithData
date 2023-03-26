@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <el-scrollbar ref="scroll">
+    <el-scrollbar ref="scroll" @scroll="scrollProxy">
+<!--      <div id="animation-canvas">Hello</div>-->
       <particle-p5 id="animation-canvas" @scrollDown="scrollDown"></particle-p5>
       <welcome-view id="main"></welcome-view>
     </el-scrollbar>
-    <fast-entry></fast-entry>
   </div>
 </template>
 
@@ -12,12 +12,10 @@
 // @ is an alias to /src
 import ParticleP5 from '@/components/ParticleP5.vue';
 import WelcomeView from '@/views/WelcomeView.vue';
-import FastEntry from '@/components/FastEntry';
 
 export default {
   name: 'HomeView',
   components: {
-    FastEntry,
     ParticleP5,
     WelcomeView,
   },
@@ -30,11 +28,20 @@ export default {
     scrollDown() {
       document.getElementById('main').scrollIntoView({ behavior: 'smooth' });
     },
+    scrollProxy(scrollParams) {
+      window.pageYOffset = scrollParams.scrollTop;
+      window.scrollY = scrollParams.scrollTop;
+      if (scrollParams.scrollTop>=document.documentElement.clientHeight) {
+        this.$router.replace('/#main');
+      } else {
+        this.$router.replace('/');
+      }
+    },
   },
   mounted() {
     if (this.$route.hash === '#main') {
       document.getElementById('main').scrollIntoView();
-      this.$router.replace('/');
+      // this.$router.replace('/');
     }
   },
 };
@@ -43,17 +50,12 @@ export default {
 <style scoped lang="scss">
 .home {
   height: 100vh;
-  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 #animation-canvas, #main {
   color: white;
   height: 100vh;
-  scroll-snap-align: center;
-}
-
-::v-deep .el-scrollbar__wrap {
-  scroll-snap-type: y mandatory;
 }
 
 

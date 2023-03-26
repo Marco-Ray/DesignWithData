@@ -29,7 +29,7 @@ export default {
 @import '@/styles/mixin.scss';
 
 .fast-entry {
-  position: fixed;
+  position: absolute;
   bottom: 17px;
   left: 32px;
   height: 68px;

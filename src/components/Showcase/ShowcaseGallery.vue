@@ -67,14 +67,13 @@ export default {
   text-align: left;
 }
 
-// todo
 .description {
   position: fixed;
   right: 32px;
   width: wCalc(357);
   font-family: Helvetica Light;
   font-weight: 100;
-  font-size: fSizeCalc(13);
+  font-size: fSizeCalc(14);
   line-height: fSizeCalc(23);
   pointer-events: none;
 }

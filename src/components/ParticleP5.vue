@@ -8,15 +8,22 @@
         <img :src="ArrowDown" alt="scroll down" class="arrow-down" />
       </div>
     </div>
+
+    <fast-entry></fast-entry>
   </div>
 </template>
 
 <script>
 import ArrowDown from '@/assets/img/HomeView/ArrowDown.png';
+import FastEntry from '@/components/FastEntry';
+
 
 export default {
   name: 'ParticleP5',
   emits: ['scrollDown'],
+  components: {
+    FastEntry,
+  },
   data() {
     return {
       ArrowDown: ArrowDown,
@@ -181,7 +188,6 @@ export default {
 }
 
 .animate__animated.animate__flash {
-  // todo
   transition-timing-function: ease-in-out;
   --animate-duration: 2.2s !important;
 }

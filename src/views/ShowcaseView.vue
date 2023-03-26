@@ -10,7 +10,7 @@
       >
       </component>
     </transition>
-    <fast-entry :viewMode="viewMode"></fast-entry>
+<!--    <fast-entry :viewMode="viewMode"></fast-entry>-->
   </div>
 </template>
 
@@ -67,7 +67,7 @@ export default {
       this.$emit('switchMode', mode);
     },
     viewMore(index) {
-      // todo
+      // todo link to viewMore page
       console.log(index);
     }
   },
