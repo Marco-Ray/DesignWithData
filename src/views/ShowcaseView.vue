@@ -10,7 +10,6 @@
       >
       </component>
     </transition>
-<!--    <fast-entry :viewMode="viewMode"></fast-entry>-->
   </div>
 </template>
 
@@ -18,7 +17,6 @@
 import NavBar from '@/components/NavBar';
 import ShowcaseCarousel from '@/components/Showcase/ShowcaseCarousel';
 import ShowcaseGallery from '@/components/Showcase/ShowcaseGallery';
-import FastEntry from '@/components/FastEntry';
 import Placeholder from '@/assets/img/Showcase/placeholder.png';
 
 export default {
@@ -30,7 +28,6 @@ export default {
   components: {
     ShowcaseGallery,
     ShowcaseCarousel,
-    FastEntry,
     NavBar,
   },
   data() {
@@ -82,7 +79,7 @@ export default {
 }
 
 .Showcase {
-  margin-top: 140px;
+  margin-top: hCalc(140);
   background-color: black;
   width: 100vw;
   height: 100vh;
