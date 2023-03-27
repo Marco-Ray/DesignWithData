@@ -29,22 +29,29 @@ import LOGO from '@/assets/img/dwd_logo.png';
 
 export default {
   name: 'NavBar',
-  props: {
-    viewMode: {
-      type: String,
-      default: 'carousel'
-    },
-  },
+  // props: {
+  //   viewMode: {
+  //     type: String,
+  //     default: 'carousel'
+  //   },
+  // },
   data() {
     return {
       LOGO: LOGO,
     };
   },
+  computed: {
+    viewMode() {
+      return this.$store.state.viewMode;
+    },
+  },
   methods: {
     goHome() {
       this.$router.push('/');
       this.$nextTick(()=>{
-        document.getElementById('animation-canvas').scrollIntoView({ behavior: 'smooth' });
+        if (document.getElementById('animation-canvas')) {
+          document.getElementById('animation-canvas').scrollIntoView({ behavior: 'smooth' });
+        }
       });
     }
   },
@@ -100,6 +107,21 @@ export default {
   cursor: pointer;
   .logo {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  #nav-bar {
+    padding: 0 16px;
+  }
+  .logo-container {
+    width: wCalcM(120);
+    height: wCalcM(41);
+  }
+  .el-meno-demo {
+    .mobile {
+      display: block;
+    }
   }
 }
 </style>

@@ -5,11 +5,20 @@
       <component :is="viewMode==='carousel' ? 'ShowcaseCarousel' : 'ShowcaseGallery'"
                  :Placeholder="Placeholder"
                  :info="track === 'fashion' ? fashion : ecology"
-                 @switchMode="switchMode"
                  @viewMore="viewMore"
       >
       </component>
     </transition>
+
+    <showcase-project
+      class="showcase-project"
+      :class="[isShowProject ? 'isShow' : 'isHidden']"
+      :Placeholder="Placeholder"
+      @closeProjectPage="closeProjectPage"
+      @getPreviousProject="getPreviousProject"
+      @getNextProject="getNextProject"
+    >
+    </showcase-project>
   </div>
 </template>
 
@@ -18,22 +27,29 @@ import NavBar from '@/components/NavBar';
 import ShowcaseCarousel from '@/components/Showcase/ShowcaseCarousel';
 import ShowcaseGallery from '@/components/Showcase/ShowcaseGallery';
 import Placeholder from '@/assets/img/Showcase/placeholder.png';
+import { mapMutations } from "vuex";
+import ShowcaseProject from "@/components/Showcase/ShowcaseProject";
 
 export default {
   name: 'ShowcaseView',
-  emits: ['switchMode'],
-  props: {
-    viewMode: String,
-  },
   components: {
+    ShowcaseProject,
     ShowcaseGallery,
     ShowcaseCarousel,
     NavBar,
   },
+  computed: {
+    viewMode() {
+      return this.$store.state.viewMode;
+    },
+    path() {
+      return this.$route.params.track;
+    }
+  },
   data() {
     return {
       track: this.$route.params.track,
-      // viewMode: this.$route.query.viewMode,
+      isShowProject: false,
       Placeholder: Placeholder,
       fashion: {
         description: 'Fashion Informatics explores data in the context and landscape of fashion, ' +
@@ -45,7 +61,12 @@ export default {
           'their concepts and processes, into an expanded range of applications such as AR virtual try-on, ' +
           'decentralised AI fashion platform, blockchain technology for fashion transparency. ' +
           'The works in display seek to rethink, disrupt and reimagine fashion beyond its physicality, ' +
-          'conception and norm, to create new insights whilst fostering environmental awareness in consumers.'
+          'conception and norm, to create new insights whilst fostering environmental awareness in consumers.',
+        projects: [
+          {index: 0, track:'fashion'},
+          {index: 1, track:'fashion'},
+          {index: 2, track:'fashion'}
+        ],
       },
       ecology: {
         description: 'Designing Ecologies explores data through the lenses of natural and ecological systems. ' +
@@ -56,22 +77,42 @@ export default {
           'morphological modifications in plants, bumblebees, phenological mismatches between trees, ' +
           'caterpillars and birds, to marine ecosystems through participatory games, ' +
           'bio-design approaches to data physicalisation and sculptural installations.',
+        projects: [
+          {index: 0, track:'ecology'},
+          {index: 1, track:'ecology'},
+          {index: 2, track:'ecology'},
+          {index: 3, track:'ecology'},
+        ],
       },
     };
   },
   methods: {
+    ...mapMutations([
+      'setProject',
+    ]),
     switchMode(mode) {
       this.$emit('switchMode', mode);
     },
     viewMore(index) {
-      // todo link to viewMore page
-      console.log(index);
-    }
+      this.$store.commit('setProject', this.track === 'fashion' ? this.fashion.projects[index] : this.ecology.projects[index]);
+      this.isShowProject = true;
+    },
+    closeProjectPage() {
+      this.isShowProject = false;
+    },
+    getPreviousProject(index) {
+      this.$store.commit('setProject', this.track === 'fashion' ? this.fashion.projects[index] : this.ecology.projects[index])
+    },
+    getNextProject(index) {
+      this.$store.commit('setProject', this.track === 'fashion' ? this.fashion.projects[index] : this.ecology.projects[index])
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/mixin.scss';
+
 .nav {
   position: fixed;
   top: 0;
@@ -79,10 +120,26 @@ export default {
 }
 
 .Showcase {
-  margin-top: hCalc(140);
+  //position: relative;
+  //margin-top: hCalc(140);
   background-color: black;
   width: 100vw;
   height: 100vh;
   color: white;
+}
+
+.showcase-project {
+  position: absolute;
+  bottom: 0;
+  margin-top: 118px;
+  z-index: 100;
+}
+
+.isShow {
+  height: calc(100vh - 118px);
+}
+
+.isHidden {
+  height: 0;
 }
 </style>

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "aos": "^3.0.0-beta.6",
     "core-js": "^3.8.3",
     "element-plus": "^2.2.36",
     "global": "^4.4.0",

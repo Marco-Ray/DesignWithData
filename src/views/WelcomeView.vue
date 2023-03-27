@@ -7,95 +7,133 @@
     <div class="content">
 <!--      left-->
       <div class="left">
-        <div class="title">Design with Data 2023 Student Showcase</div>
-        <div class="text description">
-          Design with Data is a course taught as part of the Design Informatics Postgraduate programme at the University of Edinburgh.
-          This year, the course is structured into two cohorts: Fashion Informatics, lead by Lynne Craig with course tutors Alexandre Colle and Patrick White; and Designing Ecologies, lead by Dr Larissa Pschetz, with course tutors Dr Asad Khan and Brian Proudfoot.
-          Under the curatorial lead of Dr Patricia Wu Wu, students have created a series of responses to explore ‘data-as-a-material’, showcased as part of the Edinburgh Science Festival. The works question more than human and under-represented "voices" in data collection or seek to examine ways in which we could adorn our human selves through worn-data interfaces, ranging from interactive artefacts, data physicalisations, climate-focused games, to data-driven storytelling and beyond.
-          <br/>
-          <br/>
-          The student showcase takes place from 1-7 April (10am - 4pm), at Inspace, 1 Crichton St, Newington, Edinburgh EH8 9AB. For directions to the venue, please see <a href="" id="map-link">the campus map</a>. <!-- todo link -->
+        <div data-aos="fade-up">
+          <div class="title">Design with Data 2023 Student Showcase</div>
+          <div class="text description">
+            Design with Data is a course taught as part of the Design Informatics Postgraduate programme at the University of Edinburgh.
+            This year, the course is structured into two cohorts: Fashion Informatics, lead by Lynne Craig with course tutors Alexandre Colle and Patrick White; and Designing Ecologies, lead by Dr Larissa Pschetz, with course tutors Dr Asad Khan and Brian Proudfoot.
+            Under the curatorial lead of Dr Patricia Wu Wu, students have created a series of responses to explore ‘data-as-a-material’, showcased as part of the Edinburgh Science Festival. The works question more than human and under-represented "voices" in data collection or seek to examine ways in which we could adorn our human selves through worn-data interfaces, ranging from interactive artefacts, data physicalisations, climate-focused games, to data-driven storytelling and beyond.
+            <br/>
+            <br/>
+            The student showcase takes place from 1-7 April (10am - 4pm), at Inspace, 1 Crichton St, Newington, Edinburgh EH8 9AB. For directions to the venue, please see <a href="" id="map-link">the campus map</a>. <!-- todo link -->
+          </div>
         </div>
 
-        <div class="sub-title catalog">Exhibition Catalog</div>
-        <div class="text pdf-link">PDF Download</div>
-
-        <div class="sub-title sponsor">Sponsor</div>
-        <div>
-          <img :src="Sponsor1" alt="sponsor-1" class="sponsor-img" />
-          <img :src="Sponsor2" alt="sponsor-2" class="sponsor-img" />
+        <div data-aos="fade-up">
+          <div class="sub-title catalog">Exhibition Catalog</div>
+          <!--    todo link-->
+          <div class="text pdf-link">PDF Download</div>
         </div>
 
-        <div class="sub-title social-media">Social Media</div>
-        <div class="text social-media-link">
-          <!--          todo link?-->
-          <div>@Designwithdata</div>
-          <div>@inspacegallery</div>
+        <div data-aos="fade-up">
+          <div class="sub-title sponsor">Sponsor</div>
+          <div>
+            <a href="https://www.sciencefestival.co.uk/" target="_blank">
+              <img :src="Sponsor1" alt="sponsor-1" class="sponsor-img" />
+            </a>
+            <a href="https://inspace.ed.ac.uk/" target="_blank">
+              <img :src="Sponsor2" alt="sponsor-2" class="sponsor-img" />
+            </a>
+          </div>
+        </div>
+
+
+        <div data-aos="fade-up">
+          <div class="sub-title social-media">Social Media</div>
+          <div class="text social-media-link">
+            <!--          todo link?-->
+            <div>@Designwithdata</div>
+            <div>@inspacegallery</div>
+          </div>
         </div>
       </div>
 
 <!--      right-->
       <div class="right">
-        <div class="title">Credit</div>
-        <div class="text">With thanks to the student production team: </div>
-
-        <div class="sub-title">Website Design and Development</div>
-        <div class="text">
-          <div>Liyuan Sun</div>
-          <div>Zehuan Wang</div>
+        <div data-aos="fade-up">
+          <div class="title">Credit</div>
+          <div class="text">With thanks to the student production team: </div>
         </div>
 
-        <div class="sub-title">Marketing and PR</div>
-        <div class="text">
-          <div>Wenhua Jiang</div>
-          <div>Ganrong Tan</div>
+        <div data-aos="fade-up">
+          <div class="sub-title">Website Design and Development</div>
+          <div class="text">
+            <div>Liyuan Sun</div>
+            <div>Zehuan Wang</div>
+          </div>
         </div>
 
-        <div class="sub-title">Poster Design and Exhibition Catalogue</div>
-        <div class="text">
-          <div>Jenny Hu</div>
-          <div>Yue Zhang</div>
-          <div>Boya Chen</div>
+        <div data-aos="fade-up">
+          <div class="sub-title">Marketing and PR</div>
+          <div class="text">
+            <div>Wenhua Jiang</div>
+            <div>Ganrong Tan</div>
+          </div>
         </div>
 
-        <div class="sub-title">Exhibition Construction Research and Setup Support</div>
-        <div class="text">
-          <div>Jenny Hu</div>
-          <div>Yue Zhang</div>
-          <div>Boya Chen</div>
+        <div data-aos="fade-up">
+          <div class="sub-title">Poster Design and Exhibition Catalogue</div>
+          <div class="text">
+            <div>Jenny Hu</div>
+            <div>Yue Zhang</div>
+            <div>Boya Chen</div>
+          </div>
         </div>
 
-        <div class="text">With thanks to our tutor team:</div>
-
-        <div class="sub-title">Design Informatics Workshop Technician</div>
-        <div class="text">
-          <div>Mark Kobine</div>
+        <div data-aos="fade-up">
+          <div class="sub-title">Exhibition Construction Research and Setup Support</div>
+          <div class="text">
+            <div>Jenny Hu</div>
+            <div>Yue Zhang</div>
+            <div>Boya Chen</div>
+          </div>
         </div>
 
-        <div class="sub-title">Design Informatics Research Centre Support Assistant</div>
-        <div class="text">
-          <div>Roxanne Wong</div>
+        <div data-aos="fade-up">
+          <div class="text">With thanks to our tutor team:</div>
         </div>
 
-        <div class="sub-title">Information, Technical and Technology Services</div>
-        <div class="text">
-          <div>Mike Boyd</div>
+        <div data-aos="fade-up">
+          <div class="sub-title">Design Informatics Workshop Technician</div>
+          <div class="text">
+            <div>Mark Kobine</div>
+          </div>
         </div>
 
-        <div class="sub-title">ECA Technology Support Officer</div>
-        <div class="text">
-          <div>Mark Thompson</div>
+        <div data-aos="fade-up">
+          <div class="sub-title">Design Informatics Research Centre Support Assistant</div>
+          <div class="text">
+            <div>Roxanne Wong</div>
+          </div>
         </div>
 
-        <div class="sub-title">Material Hub Team Lead</div>
-        <div class="text">
-          <div>Joan Quest</div>
+        <div data-aos="fade-up">
+          <div class="sub-title">Information, Technical and Technology Services</div>
+          <div class="text">
+            <div>Mike Boyd</div>
+          </div>
         </div>
 
-        <div class="sub-title">Support Services Area Manager</div>
-        <div class="text">
-          <div>Peter Thomson</div>
-          <div>Graham Strachan</div>
+        <div data-aos="fade-up">
+          <div class="sub-title">ECA Technology Support Officer</div>
+          <div class="text">
+            <div>Mark Thompson</div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up">
+          <div class="sub-title">Material Hub Team Lead</div>
+          <div class="text">
+            <div>Joan Quest</div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up">
+          <div class="sub-title">Support Services Area Manager</div>
+          <div class="text">
+            <div>Peter Thomson</div>
+            <div>Graham Strachan</div>
+          </div>
         </div>
       </div>
     </div>
@@ -109,14 +147,15 @@
 
       <div class="info-container">
         <div>
-          <div class="title">About</div>
+          <router-link to="/#main" class="title">About</router-link>
         </div>
         <div>
           <div class="title">Showcase</div>
-          <div class="text">Fashion Informatics</div>
-          <div class="text">Designing Ecologies</div>
+          <router-link :to="{ path: '/showcase/fashion', query: { viewMode: viewMode } }" class="text">Fashion Informatics</router-link>
+          <router-link :to="{ path: '/showcase/fashion', query: { viewMode: viewMode } }" class="text">Designing Ecologies</router-link>
         </div>
         <div>
+          <!--    todo link-->
           <div class="title">Social Media</div>
           <div class="text social-media-link">@Designwithdata</div>
           <div class="text social-media-link">@inspacegallery</div>
@@ -139,6 +178,11 @@ export default {
   name: 'WelcomeView',
   components: {
     NavBar,
+  },
+  computed: {
+    viewMode() {
+      return this.$store.state.viewMode;
+    },
   },
   data() {
     return {
@@ -192,6 +236,7 @@ export default {
   }
   .sponsor-img {
     height: hCalc(67);
+    margin-bottom: wCalc(20);
     &:nth-child(1) {
       margin-right: wCalc(13);
     }
@@ -211,8 +256,8 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: wCalc(77);
-  padding: 31px 31px;
+  margin-top: hCalc(77);
+  padding: 0 31px;
   background: white;
   width: calc(100% - 62px);
   height: 213px;
@@ -232,6 +277,8 @@ export default {
     justify-content: space-between;
     width: wCalc(369);
     .title {
+      color: black;
+      text-decoration: unset;
       font-family: Helvetica;
       font-size: fSizeCalc(16);
       font-weight: 700;
@@ -240,6 +287,9 @@ export default {
       white-space: nowrap;
     }
     .text {
+      display: block;
+      color: black;
+      text-decoration: unset;
       font-family: Helvetica Light;
       font-size: fSizeCalc(12);
       font-weight: 400;
@@ -264,11 +314,45 @@ export default {
   }
 }
 
-//.nav {
-//  position: absolute;
-//  top: 0;
-//  left: 0;
-//}
+@media screen and (max-width: 414px) {
+  .content {
+    grid-template-columns: 1fr;
+    .title {
+      font-size: fSizeCalc(32);
+    }
+    .text {
+      margin-bottom: hCalcM(15);
+      font-size: fSizeCalc(16);
+    }
+    .sub-title {
+      margin-bottom: hCalcM(10);
+    }
+    .sponsor-img {
+      width: wCalcM(138);
+      height: wCalcM(55);
+      margin-bottom: hCalcM(15);
+    }
+  }
+  .footer {
+    margin-top: hCalcM(26);
+    padding: 26px 16px 0 16px;
+    width: calc(100% - 32px);
+    height: 166px;
+    .logo-container {
+      column-gap: wCalcM(15);
+      .logo {
+      //width: wCalcM(120);
+      height: wCalcM(41);
+      }
+    }
+    .info-container {
+      display: none;
+    }
+    .copyright {
+      left: 16px;
+    }
+  }
+}
 </style>
 
 

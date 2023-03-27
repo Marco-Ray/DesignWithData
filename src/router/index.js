@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import ShowcaseLayout from '@/views/ShowcaseLayout.vue';
 import ShowcaseView from '@/views/ShowcaseView.vue';
+import ShowcaseProject from '@/components/Showcase/ShowcaseProject.vue';
 
 const routes = [
   {
@@ -9,7 +10,6 @@ const routes = [
     name: 'home',
     component: HomeView,
     meta: {
-      index: 0,
       transitionName: 'fade',
     },
   },
@@ -23,11 +23,10 @@ const routes = [
         name: 'track',
         component: ShowcaseView,
         meta: {
-          index: 1,
           transitionName: 'fade',
           // track: 'fashion',
         }
-      }
+      },
     ]
   },
 ];

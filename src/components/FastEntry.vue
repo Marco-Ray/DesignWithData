@@ -16,10 +16,9 @@
 <script>
 export default {
   name: 'FastEntry',
-  props: {
-    viewMode: {
-      type: String,
-      default: 'carousel'
+  computed: {
+    viewMode() {
+      return this.$store.state.viewMode;
     },
   },
 }
@@ -54,6 +53,22 @@ export default {
   }
   .router-link-active {
     border-bottom: .5px solid white;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .fast-entry {
+    left: wCalcM(16);
+    width: wCalcM(100);
+    a {
+      font-family: Helvetica;
+      font-size: fSizeCalc(14);
+      font-weight: 400;
+      line-height: fSizeCalc(16);
+      letter-spacing: fSizeCalc(0.15);
+      text-align: left;
+      white-space: normal;
+    }
   }
 }
 </style>

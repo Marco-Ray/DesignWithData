@@ -26,6 +26,7 @@
 
 <script>
 import IconCarousel from '@/assets/img/Showcase/icon-carousel.png';
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'ShowcaseGallery',
@@ -41,8 +42,11 @@ export default {
     };
   },
   methods: {
+    ...mapMutations([
+      'switchViewMode',
+    ]),
     switchMode() {
-      this.$emit('switchMode', 'carousel');
+      this.$store.commit('switchViewMode', 'carousel');
     },
     viewMore(index) {
       this.$emit('viewMore', index);

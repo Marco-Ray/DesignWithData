@@ -30,7 +30,8 @@
 
 <script>
 import IconGallery from '@/assets/img/Showcase/icon-gallery.png';
-import IconVector from '@/assets/img/Showcase/icon-vector.png';
+import IconVector from '@/assets/img/Showcase/icon-vector.svg';
+import {mapMutations} from "vuex";
 
 export default {
   name: 'ShowcaseCarousel',
@@ -45,8 +46,11 @@ export default {
     };
   },
   methods: {
+    ...mapMutations([
+      'switchViewMode',
+    ]),
     switchMode() {
-      this.$emit('switchMode', 'gallery');
+      this.$store.commit('switchViewMode', 'gallery');
     },
     viewMore(index) {
       this.$emit('viewMore', index);
@@ -59,7 +63,7 @@ export default {
 @import '@/styles/mixin.scss';
 
 .showcase-carousel-container {
-  margin-top: -40px;
+  margin-top: -20px;
 }
 
 .info {

@@ -2,8 +2,16 @@
   @return calc(100vw / 1200 * $w);
 }
 
+@function wCalcM($w) {
+  @return calc(100vw / 375 * $w);
+}
+
 @function hCalc($h) {
   @return calc(100vh / 700 * $h);
+}
+
+@function hCalcM($h) {
+  @return calc(100vh / 375 * $h);
 }
 
 @function fSizeCalc($fs) {

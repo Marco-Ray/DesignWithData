@@ -3,9 +3,14 @@
   <div class="container">
     <div id="p5Canvas"></div>
     <div class="btt-scroll animate__animated animate__flash animate__infinite animate__slower" @click="scrollDown">
-      <div>Scroll down</div>
-      <div class="arrow-down-box">
-        <img :src="ArrowDown" alt="scroll down" class="arrow-down" />
+      <div class="pc">
+        <div>Scroll down</div>
+        <div class="arrow-down-box">
+          <img :src="ArrowDown" alt="scroll down" class="arrow-down" />
+        </div>
+      </div>
+      <div class="mobile">
+        <img :src="IconScrollDown" alt="scroll down" class="arrow-down" />
       </div>
     </div>
 
@@ -15,7 +20,9 @@
 
 <script>
 import ArrowDown from '@/assets/img/HomeView/ArrowDown.png';
+import IconScrollDown from '@/assets/img/HomeView/icon-scrolldown.svg';
 import FastEntry from '@/components/FastEntry';
+import HelveticaFont from '@/assets/fonts/Helvetica/Helvetica.otf';
 
 
 export default {
@@ -27,6 +34,8 @@ export default {
   data() {
     return {
       ArrowDown: ArrowDown,
+      IconScrollDown: IconScrollDown,
+      HelveticaFont: HelveticaFont,
     };
   },
   methods: {
@@ -37,11 +46,11 @@ export default {
   mounted() {
     const script = function (p5) {
       let particleList = [];
-      let interval = 16;
+      let interval = p5.max(16*p5.windowWidth/1200, 8);
       let vels = 0.08;
-      let max_s = 15;
+      let max_s = p5.max(15*p5.windowWidth/1200, 7);
       let mouseMaskSize = 50;
-      let fontSize = 140*p5.windowHeight/700;
+      let fontSize = p5.max(140*p5.windowWidth/1200, 80);
 
       function checkPixelColor(index) {
         if (p5.pixels[index]===255 && p5.pixels[index+1]===255 && p5.pixels[index+2]===255) {
@@ -80,6 +89,11 @@ export default {
         p5.clear();
         p5.fill(255);
         p5.noStroke();
+      }
+
+      let font;
+      p5.preload = _ => {
+        font = p5.loadFont('/Helvetica.otf');
       }
 
       // NOTE: Set up is here
@@ -160,9 +174,6 @@ export default {
 .btt-scroll {
   position: absolute;
   bottom: 17px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   height: 68px;
   font-family: Helvetica Light;
   font-size: fSizeCalc(12);
@@ -170,6 +181,18 @@ export default {
   line-height: fSizeCalc(28);
   color: white;
   cursor: pointer;
+  .pc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 68px;
+  }
+  .mobile {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    height: 68px;
+  }
   .arrow-down-box {
     margin-left: 3px;
     width: fSizeCalc(12);
@@ -190,5 +213,18 @@ export default {
 .animate__animated.animate__flash {
   transition-timing-function: ease-in-out;
   --animate-duration: 2.2s !important;
+}
+
+@media screen and (max-width: 414px) {
+  .btt-scroll {
+    position: absolute;
+    right: wCalcM(16);
+    .pc {
+      display: none;
+    }
+    .mobile {
+      display: flex;
+    }
+  }
 }
 </style>
